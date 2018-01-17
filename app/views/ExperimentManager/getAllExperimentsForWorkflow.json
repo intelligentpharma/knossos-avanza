@@ -1,0 +1,18 @@
+[%{
+	experimentJsons = [];
+	for( experiment in experiments) {
+		json = "{" + 
+				"\"id\" : \"" + experiment.id + "\"," +
+				"\"name\" : \"" + experiment.name + "\"," + 
+				"\"engine\" : \"" + experiment.engineName + "\"," +
+				"\"owner\" : \"" + experiment.owner.username + "\"," +
+				"\"status\" : \"" + experiment.status + "\"," +
+				"\"comments\" : \"" + experiment.getCommentsEscapedForJson() + "\"," +
+				"\"mark\" : \"" + experiment.mark + "\"," +
+				"\"targetDatabaseId\" : \"" + experiment.targetMolecules.id + "\"," +
+				"\"progress\" : \"" + experiment.getProgress() + "\"" +
+				"}";
+		experimentJsons.add(json);
+	}
+	out.print(experimentJsons.join(","));
+}%]

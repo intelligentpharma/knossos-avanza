@@ -1,0 +1,40 @@
+{
+	"workflow": {
+		"id":	"${step.workflow.id}",
+		"name":	"${step.workflow.name}",
+		"status": "${step.workflow.status}",
+		"owner": "${step.workflow.owner}",
+		"workflowExperiments": [%{
+			experimentsJson = [];
+			for( workflowexperiment in step.workflow.workflowExperiments) {
+				json = "{" + 
+						"\"index\" : \"" + workflowexperiment.index + "\"," +
+						"\"workflow_id\" : \"" + workflowexperiment.workflow.id + "\"," +
+						"\"database_id\" : \"" + workflowexperiment.database.id + "\"," +
+						"\"experiment_id\" : \"" + workflowexperiment.experiment.id + "\"," +
+						"\"filter_id\" : \"" + workflowexperiment.filter.id + "\"" +    		    						
+						"}";
+				experimentsJson.add(json);
+			}
+			out.print(experimentsJson.join(","));
+}%]
+},
+	"database": {
+		"id":	"${step.database.id}",
+		"name":	"${step.database.name}",
+		"calculatedproperties":	"${step.database.calculatedProperties}",
+		"database":	"${step.database.database}",		
+		"transientFile":	"${step.database.transientFile}",
+		"originalFileName":	"${step.database.originalFileName}",
+		"calculatedDescriptors2D":	"${step.database.calculatedDescriptors2D}",
+		"calculatedDescriptors3D":	"${step.database.calculatedDescriptors3D}",
+		"counterIonsRemoved":	"${step.database.counterIonsRemoved}",
+		"calculatedLigandEfficiency":	"${step.database.calculatedLigandEfficiency}",
+		"maxEnergyGrindValue":	"${step.database.maxEnergyGrindValue}",
+		"minEnergyGrindValue":	"${step.database.minEnergyGrindValue}",	
+		"status":	"${step.database.status}",
+		"numMolecules":	"${step.database.numMolecules}",
+		"numDeployments":	"${step.database.numDeployments}",				
+		"workflowExperimentId":	"${step.database.workflowExperimentId}"		
+	}
+}

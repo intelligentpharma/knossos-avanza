@@ -1,0 +1,13 @@
+[%{
+	workflowJsons = [];
+	for( workflow in workflows) {
+		json = "{" + 
+				"\"id\" : \"" + workflow.id + "\"," +
+				"\"name\" : \"" + workflow.name + "\"," + 				
+				"\"owner\" : \"" + workflow.owner.username + "\"," +
+				"\"status\" : \"" + workflow.status + "\"" +
+				"}";
+		workflowJsons.add(json);
+	}
+	out.print(workflowJsons.join(","));
+}%]

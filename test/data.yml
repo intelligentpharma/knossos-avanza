@@ -1,0 +1,259 @@
+# you describe your data using the YAML notation here
+# and then load them using Fixtures.load("data.yml")
+
+User(adrian):
+  username: aperreau
+  email: aperreau@intelligentpharma.com
+  password: adrian
+  isAdmin: false
+    
+User(xaviA):
+  username: xarroyo
+  email: xarroyo@intelligentpharma.com
+  password: xavi
+  isAdmin: false
+  
+User(laia):
+  username: lnavarro
+  email: lnavarro@intelligentpharma.com
+  password: laia
+  isAdmin: false
+  
+User(xaviM):
+  username: xmaresma
+  email: xmaresma@intelligentpharma.com
+  password: xavi
+  isAdmin: false
+  
+User(admin):
+  username: admin
+  email: admin@intelligentpharma.com
+  password: admin
+  isAdmin: true
+
+User(david):
+  username: dbermudez
+  email: dbermudez@intelligentpharma.com
+  password: david
+  isAdmin: false
+
+User(test):
+  username: test
+  email: test@intelligentpharma.com
+  password: test
+  isAdmin: false  
+
+User(common):
+  username: common
+  email: common@intelligentpharma.com
+  password: common
+  isAdmin: false
+
+MoleculeDatabase(proteins):
+  name: Proteins
+  originalFileName: proteins.sdf
+  owner: adrian
+  status: available
+
+MoleculeDatabase(salts):
+  name: Salts
+  owner: adrian
+  status: available
+
+MoleculeDatabase(sugars):
+  name: Sugars
+  owner: xaviA
+  status: available
+
+MoleculeDatabase(alcohols):
+  name: Alcohols
+  owner: xaviM
+  status: available
+
+Molecule(alcohol1):
+  name: Ethanol
+  database: alcohols
+  
+Molecule(alcohol2):
+  name: Methanol
+  database: alcohols
+
+Deployment(alcochol1dep):
+  name: Ethanol_c1_t2_i3
+  molecule: alcohol1
+
+Deployment(alcochol2dep):
+  name: Methanol_c1_t2_i3
+  molecule: alcohol2
+
+PropertyValue:
+  name: Toxicity
+  value: 12
+  deployment: alcohol1dep
+  
+PropertyValue:
+  name: Toxicity
+  value: 21
+  deployment: alcohol2dep
+
+ComparisonExperiment(prueba1):
+  name: Primera prueba
+  probeMolecules: salts
+  targetMolecules: salts
+  chargeType: 4
+  similarityCalculationType: 1
+  engineId: 1
+  engineName: Hercules
+  owner: adrian
+  status: Queued
+
+ComparisonExperiment(prueba2):
+  name: Segunda prueba
+  probeMolecules: sugars
+  targetMolecules: sugars
+  chargeType: 2
+  similarityCalculationType: 2
+  engineId: 1
+  engineName: Hercules
+  owner: xaviA
+  status: Finished
+
+Ponderation(inverseAD):
+  owner: admin
+  name: inverseAD
+  weights:
+    A: 0.0416666
+    Br: 0.0104166
+    C: 0.0416666
+    Ca: 0.0083333
+    Cl: 0.0104166
+    F: 0.0104166
+    Fe: 0.0083333
+    HD: 0.0416666
+    I: 0.0104166
+    Mg: 0.0083333
+    Mn: 0.0083333
+    N: 0.0069444
+    NA: 0.0069444
+    NS: 0.0069444
+    OA: 0.0069444
+    OS: 0.0069444
+    P: 0.0416666
+    S: 0.0416666
+    SA: 0.0069444
+    Zn: 0.0083333
+    e: 0.3333333
+    d: 0.3333333
+    
+Ponderation(prueba1):
+  owner: david
+  name: prueba1
+  weights:
+    A: 0.1
+    Br: 0.2
+    C: 0.3
+    Ca: 0.4
+    Cl: 0.5
+    F: 0.6
+    Fe: 0.7
+    HD: 0.8
+    I: 0.9
+    Mg: 0.10
+    Mn: 0.11
+    N: 0.12
+    NA: 0.13
+    NS: 0.14
+    OA: 0.15
+    OS: 0.16
+    P: 0.17
+    S: 0.18
+    SA: 0.19
+    Zn: 0.20
+    e: 0.21
+    d: 0.22
+    
+Ponderation(prueba2):
+  owner: david
+  name: prueba2
+  weights:
+    A: 0.1
+    Br: 0.2
+    C: 0.3
+    Ca: 0.4
+    Cl: 0.5
+    F: 0.6
+    Fe: 0.7
+    HD: 0.8
+    I: 0.9
+    Mg: 0.10
+    Mn: 0.11
+    N: 0.12
+    NA: 0.13
+    NS: 0.14
+    OA: 0.15
+    OS: 0.16
+    P: 0.17
+    S: 0.18
+    SA: 0.19
+    Zn: 0.20
+    e: 0.21
+    d: 0.22
+
+Ponderation(prueba3):
+  owner: adrian
+  name: prueba3
+  weights:
+    A: 0.1
+    Br: 0.2
+    C: 0.3
+    Ca: 0.4
+    Cl: 0.5
+    F: 0.6
+    Fe: 0.7
+    HD: 0.8
+    I: 0.9
+    Mg: 0.10
+    Mn: 0.11
+    N: 0.12
+    NA: 0.13
+    NS: 0.14
+    OA: 0.15
+    OS: 0.16
+    P: 0.17
+    S: 0.18
+    SA: 0.19
+    Zn: 0.20
+    e: 0.21
+    d: 0.22
+
+Ponderation(improved_inverseAD):
+  owner: admin
+  name: improved_inverseAD
+  weights:
+    A: 0.166
+    Br: 0.0
+    C: 0.166
+    Ca: 0.0
+    Cl: 0.0
+    F: 0.0
+    Fe: 0.0
+    HD: 0.166
+    I: 0.0
+    Mg: 0.0
+    Mn: 0.0
+    N: 0.0
+    NA: 0.0
+    NS: 0.0
+    OA: 0.166
+    OS: 0.0
+    P: 0.0
+    S: 0.0
+    SA: 0.0
+    Zn: 0.0
+    e: 0.333
+    d: 0.0
+
+Workflow(test):
+  owner: adrian
+  name: test
+  
